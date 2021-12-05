@@ -13,7 +13,6 @@ services:
       - vhost:/etc/nginx/vhost.d
       - html:/usr/share/nginx/html
       - certs:/etc/nginx/certs
-      - ./nginx/conf.d:/etc/nginx/conf.d # THIS NEW LINE
     labels:
       - "com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy=true"
 
@@ -50,7 +49,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
 
 volumes:
-  conf:
+  conf: ./nginx/conf.d
   vhost:
   html:
   certs:
